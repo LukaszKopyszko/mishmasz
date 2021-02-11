@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block title %}KALKULATOR BMI{% endblock %}
+
+
+
+
+{% block content %}
+
+<form class="bmi-form" method="POST" action="bmi-calc">
+    <h1 align="center" style="color: azure;">Oblicz swoje bmi</h1>
+    <div class="form-group row">
+      <label for="weight" class="col-sm-2 col-form-label">Waga(kg):</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="weight" name="weight">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="height" class="col-sm-2 col-form-label">Wzrost(cm):</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="height" name="height">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="sex" class="col-sm-2 col-form-label">Płeć</label>
+      <div class="col-sm-10">
+        <select name="options">Wybierz
+          <option name="women" value="women">Kobieta</option>
+          <option name="men" value="men">Mężczyzna</option>
+        </select>  
+      </div>
+    </div>
+      <div class="form-group row">
+      <div align="center" class="col-sm-10">
+        <button  type="submit" class="btn btn-primary">Oblicz</button>
+      </div>
+    </div>
+    <div>
+      {% if bmi < 18.5 %}
+      <p style="color: azure;">{% print("Twoje BMI wynosi:  {}.".format(bmi)) %}</p>
+      <p style="color: blue;">Interpretacja: NIEDOWAGA</p>
+      <img src="static/img/bmi.jpg" class="img-fluid" alt="Responsive image">
+      {%elif bmi >= 18.5 and bmi < 24.9%}
+      <p style="color: azure;">{% print("Twoje BMI wynosi:  {}.".format(bmi)) %}</p>
+      <p style="color: lightgreen;">Interpretacja: Prawidłowa masa ciała</p>
+      <img src="static/img/bmi.jpg" class="img-fluid" alt="Responsive image">
+      {%elif bmi >= 24.9 and bmi < 30%}
+      <p style="color: azure;">{% print("Twoje BMI wynosi:  {}.".format(bmi)) %}</p>
+      <p style="color: yellow;">Interpretacja: Nadwaga</p>
+      <img src="static/img/bmi.jpg" class="img-fluid" alt="Responsive image">
+      {%elif bmi >= 30 and bmi < 35%}
+      <p style="color: azure;">{% print("Twoje BMI wynosi:  {}.".format(bmi)) %}</p>
+      <p style="color: orange;">Interpretacja: Otyłość</p>
+      <img src="static/img/bmi.jpg" class="img-fluid" alt="Responsive image">
+      {%elif bmi > 35%}
+      <p style="color: azure;">{% print("Twoje BMI wynosi:  {}.".format(bmi)) %}</p>
+      <p style="color: red;">Interpretacja: Otyłość II STOPNIA</p>
+      <img src="static/img/bmi.jpg" class="img-fluid" alt="Responsive image">
+      {% endif %}
+    </div>
+  </form>
+  
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}STRONA UŻYTKOWNIKA{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1 style="color:azure">Twoje notatki, {{user.first_name}}</h1>
+<br><br>
+<div>
+    <form method="POST" class="form-note-add">
+        <label for="note" style="color: linen;">Nowa notatka:</label>
+        <textarea name="note" id="note" class="form-control" rows="4" ></textarea>
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Dodaj</button>
+        </div>
+    </form>
+</div>
+<br><br>
+<h2 align="center" style="color: lightgoldenrodyellow;">NOTATKI</h2>
+<ul class="list-group list-group-flush" id="notes">
+    {%for note in user.notes|sort(attribute="date", reverse=true) %}
+    <li class="list-group-item">{{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{note.id}})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    <li class="list-group-item">{{ note.date }}</li>
+    <br>
+    {%endfor%}
+</ul>
+{% endif %}
+{% endblock %}

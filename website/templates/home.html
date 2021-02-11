@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}HOME{% endblock %}
+
+{% block content %}
+<h2 style="color: azure;">Kolor zielony - ukończone <br> Kolor czerwony - jeszcze nie ma <br> Kolor żółty - w budowie</h2>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item list-group-item-danger">Generator opisów na portal randowy za pomocą wprowadzonych przez Ciebie danych do formularza</li>
+    <li class="list-group-item list-group-item-danger">Zamiana tekstu na kod morsa.</li>
+    <li class="list-group-item list-group-item-danger">Proste kalkulacje matematyczne, takie jak funkcje kwadratowe, obliczanie pól figur itd.</li>
+    <li class="list-group-item list-group-item-warning">Twoje notatki, czyli dodawanie własnych wpisów. Coś a'la notatnik.</li>
+    <li class="list-group-item list-group-item-warning">Kalkulator BMI</li>
+</ul>
+<br>
+<div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="static/img/log.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Co dalej?</h5>
+        <p class="card-text">Zaloguj się do serwisu!</p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="static/img/use.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">I co wtedy?</h5>
+        <p class="card-text">Krzystaj z funcjonalności serwisu!</p>
+      </div>
+    </div>
+    <div class="card">
+    <br><br>
+      <img class="card-img-top" src="static/img/enjoy.png" alt="Card image cap">
+      
+      <div class="card-body">
+        <h5 class="card-title">Po co?</h5>
+        <p class="card-text">Bo dają olbrzymie możliwości!</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

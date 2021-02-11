@@ -66,8 +66,9 @@ def morse():
     , 'o':'---','ó':'---.', 'p':'.--.','q':'--.-','r':'.-.','s':'...','ś':'...-...','t':'..-','u':'..-','v':'..-','w':'.--','x':'-..-','y':'-.--','z':'--..','ź':'--..-','ż':'--..-.'}
 
     if request.method == 'POST':
+        global text
         text = str(request.form.get('text_normal'))
         for letter in text:
             morse_text += code_dict[letter.lower()]
          
-    return render_template("mors.html", user=current_user, morse_text = morse_text)
+    return render_template("mors.html", user=current_user, morse_text = morse_text, text=text)

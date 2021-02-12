@@ -72,3 +72,10 @@ def morse():
             morse_text += code_dict[letter.lower()]
          
     return render_template("mors.html", user=current_user, morse_text = morse_text, text=text)
+
+
+    @views.route('/math', methods=['GET','POST'])
+    def math():
+
+
+        return render_template("math.html", user=current_user)

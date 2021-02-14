@@ -62,7 +62,7 @@
         </div>
       </nav>
       
-        <div class="p-5 bg-image" style="background-image: url('/static/img/rock.jpg');height: auto; width: auto;" >
+        <div class="p-5 bg-image" style="background-image: url('/static/img/rock.jpg'); min-height: 1080px; width: auto;" >
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
           {% for category, message in messages %}

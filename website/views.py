@@ -41,15 +41,17 @@ def delete_note():
 @views.route('/bmi-calc', methods=['GET','POST'])
 def bmi_calc():
     bmi = 0
+    flag = ''
     if request.method == 'POST':
         weight = float(request.form.get('weight'))
         height = float(request.form.get('height'))
         option = request.form.get('options')
+        flag = 'x'
         if option == 'men':
             bmi = calc_bmi_men(weight,height)
         else:
             bmi = calc_bmi_women(weight,height)
-    return render_template("bmi_calc.html", bmi=float(bmi), user = current_user)                
+    return render_template("bmi_calc.html", bmi=float(bmi), user = current_user, flag = flag)                
 def calc_bmi_men(weight,height):
     return round((weight/((height/100)**2)),2)
 def calc_bmi_women(weight,height):
@@ -60,6 +62,7 @@ def calc_bmi_women(weight,height):
 @views.route('/morse', methods=['GET', 'POST'])
 def morse():
 
+    
     morse_text = ''
     user_text = ''
 

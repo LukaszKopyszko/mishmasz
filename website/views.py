@@ -114,7 +114,9 @@ def quadratic():
     return render_template('quadratic.html', user=current_user, delta=delta, x1 = x1, x2 = x2, p = p, q = q, delta_minus = delta_minus, flag=flag, a = a)
 
 
-
+@views.route('/geometry', methods=['GET','POST'])
+def geometry():
+    return render_template('geometry.html', user=current_user)    
 
 @views.route('/generator', methods=['GET','POST'])
 def generator():

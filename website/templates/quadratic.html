@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %}FUNKCJA KWADRATOWA{% endblock %}
+
+{% block content %}
+<form class="quadratic-form" method="POST" action="quadratic">
+    <h1 style="color: cornsilk;">Obliczanie funcji kwadratowej</h1>
+    <div class="form-group">
+        <label for="first-x" class="form-label">Podaj współczynnik x-kwadrat</label>
+        <input type="number" class="form-control" id="first-x" name="first-x"/>
+    </div>
+    <div class="form-group">
+        <label for="second-x" class="form-label">Podaj współczynnik x</label>
+        <input type="number" class="form-control" id="second-x" name="second-x"/>
+    </div>
+    <div class="form-group">
+        <label for="free" class="form-label">Podaj wyraz wolny</label>
+        <input type="number" class="form-control" id="free" name="free"/>
+    </div>
+    <button class="btn btn-primary">Oblicz</button>
+    <div>
+        {% if flag %}
+        {% if delta > 0 %}
+        <p style="color: azure;">{% print("Delta wynosi:  {}.".format(delta)) %}</p>
+        <p style="color: azure;">{% print("Miejscd zerowe x1:  {}.".format(x1)) %}</p>
+        <p style="color: azure;">{% print("Miejsce zerowe x2:  {}.".format(x2)) %}</p>
+        <p style="color: azure;">{% print("Wierzchołek p:  {}.".format(p)) %}</p>
+        <p style="color: azure;">{% print("Wierzchołek q:  {}.".format(q)) %}</p>
+        {%if a > 0 %}
+        <img src="static/img/UP.png" class="img-fluid" alt="Responsive image">
+        {%elif a <0 %}
+        <img src="static/img/DOWN.png" class="img-fluid" alt="Responsive image">
+        {%endif%}
+        {%elif delta ==0 %}
+        <p style="color: azure;">{% print("Delta wynosi:  {}.".format(delta)) %}</p>
+        <p style="color: azure;">{% print("Miejsce zerowe x0:  {}.".format(x1)) %}</p>
+        <p style="color: azure;">{% print("Wierzchołek p:  {}.".format(p)) %}</p>
+        <p style="color: azure;">{% print("Wierzchołek q:  {}.".format(q)) %}</p>
+        {%if a > 0 %}
+        <img src="static/img/UP.png" class="img-fluid" alt="Responsive image">
+        {%elif a <0 %}
+        <img src="static/img/DOWN.png" class="img-fluid" alt="Responsive image">
+        {%endif%}
+        {%else%}
+        <p style="color: azure;">{% print("Delta wynosi:  {}.".format(delta)) %}</p>
+        <p style="color: azure;">{% print("Brak miejsc zerowych") %}</p>
+        <p style="color: azure;">{% print("Wierzchołek p:  {}.".format(p)) %}</p>
+        <p style="color: azure;">{% print("Wierzchołek q:  {}.".format(q)) %}</p>
+        {%if a > 0 %}
+        <img src="static/img/UP.png" class="img-fluid" alt="Responsive image">
+        {%elif a < 0 %}
+        <img src="static/img/DOWN.png" class="img-fluid" alt="Responsive image">
+        {%endif%}
+        {%endif%}
+        {%else%}
+        <p style="color: azure;">{% print("Postać ogólna funkcji kwadratowej: y=ax2+bx+c") %}</p>
+        {%endif%}
+    </div>
+</form>
+
+
+{% endblock %}

@@ -1,6 +1,37 @@
-{% extends "base.html" %} {% block title %}SIGN UP{% endblock %}
+{% extends "base.html" %} {% block title %}MATEMATYKA{% endblock %}
 
 {% block content %}
-
 <h1>Math</h1>
+<div class="card-deck">
+    <a href="/quadratic" class="custom-card">
+        <div class="card" >
+        <br><br>
+          <img class="card-img-top" src="static/img/kwadratowa.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Funkcja kwadratowa</h5>
+            <p class="card-text">Oblicz deltę i miejsca zerowe funkcji.</p>
+          </div>
+        </div>
+    </a>
+    <a href="/" class="custom-card">
+        <div class="card" >
+        <br><br>
+          <img class="card-img-top" src="static/img/enjoy.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Po co?</h5>
+            <p class="card-text">Bo dają olbrzymie możliwości!</p>
+          </div>
+        </div>
+        </a>
+    <a href="/" class="custom-card">
+    <div class="card" >
+    <br><br>
+      <img class="card-img-top" src="static/img/enjoy.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Po co?</h5>
+        <p class="card-text">Bo dają olbrzymie możliwości!</p>
+      </div>
+    </div>
+    </a>
+  </div>
 {% endblock %}

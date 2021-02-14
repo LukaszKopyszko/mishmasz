@@ -4,7 +4,6 @@
 
 
 {% block content %}
-
 <form method="POST" class="morse-form" action="morse">
     <h1 style="color: azure;">Konwerter morse'a</h1>
     <div class="form-group">
@@ -14,7 +13,7 @@
     </div>
     <div class="form-group">
         {% if morse_text %}
-        <p style="color: azure;">{% print("Twój tekst:  {}.".format(text)) %}</p>
+        <p style="color: azure;">{% print("Twój tekst:  {}.".format(user_text)) %}</p>
         <p style="color: azure;">{% print("Twój tekst zapisany kodem morsa to:  {}.".format(morse_text)) %}</p>
         {% endif %}
     </div>

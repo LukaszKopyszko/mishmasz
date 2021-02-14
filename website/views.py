@@ -3,6 +3,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from .models import Note
 from . import db
 import json
+import math
 
 views = Blueprint('views', __name__)
 
@@ -60,6 +61,7 @@ def calc_bmi_women(weight,height):
 def morse():
 
     morse_text = ''
+    user_text = ''
 
     code_dict = {' ':'|', 'a':'.-', 'ą':'.-.-','b':'-...','c':'-.-.','ć':'-.-..','d':'-..','e':'.','ę':'..-..','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..',
     'ł':'.-..-','m':'--','n':'-.','ń':'--.--'
@@ -70,12 +72,47 @@ def morse():
         text = str(request.form.get('text_normal'))
         for letter in text:
             morse_text += code_dict[letter.lower()]
-         
-    return render_template("mors.html", user=current_user, morse_text = morse_text, text=text)
+            user_text = text
+    return render_template("mors.html", user=current_user, morse_text = morse_text, user_text = user_text)
 
 
-    @views.route('/math', methods=['GET','POST'])
-    def math():
+@views.route('/math-page', methods=['GET','POST'])
+def math_page():
+    return render_template("math.html", user=current_user)
+
+@views.route('/quadratic', methods=['GET','POST'])
+def quadratic():
+    flag = ''
+    delta = 0
+    x1 = 0
+    x2 = 0
+    p = 0
+    q = 0
+    delta_minus = ''
+    a = 0 
+    if request.method == 'POST':
+        a = float(request.form.get('first-x'))
+        b = float(request.form.get('second-x'))
+        c = float(request.form.get('free'))
+        delta = ((b**2) - 4*a*c)
+        p = ((-b)/ 2*a)
+        q = ((-delta)/4*a)
+        if delta > 0:
+            x1 = (-b -(math.sqrt(delta)) / 2*a)
+            x2 = (-b +(math.sqrt(delta)) / 2*a)
+            flag = 'x'
+        elif delta == 0:
+            x1 = ((-b)/2*a)
+            flag = 'x'
+        else:
+            flag = 'x'
+            delta_minus = "Brak miejsc zerowych"
+
+    return render_template('quadratic.html', user=current_user, delta=delta, x1 = x1, x2 = x2, p = p, q = q, delta_minus = delta_minus, flag=flag, a = a)
 
 
-        return render_template("math.html", user=current_user)
+
+
+@views.route('/generator', methods=['GET','POST'])
+def generator():
+    return render_template('generator.html', user=current_user)    

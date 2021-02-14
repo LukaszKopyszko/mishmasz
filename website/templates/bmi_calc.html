@@ -32,6 +32,7 @@
       </div>
     </div>
     <div>
+      {%if flag%}
       {% if bmi < 18.5 %}
       <p style="color: azure;">{% print("Twoje BMI wynosi:  {}.".format(bmi)) %}</p>
       <p style="color: blue;">Interpretacja: NIEDOWAGA</p>
@@ -53,6 +54,10 @@
       <p style="color: red;">Interpretacja: Otyłość II STOPNIA</p>
       <img src="static/img/bmi.jpg" class="img-fluid" alt="Responsive image">
       {% endif %}
+      {% else %}
+      <p style="color: white;">WZÓR:</p>
+      <img src="static/img/BMI-wzor.PNG" class="img-fluid" alt="Responsive image">
+      {%endif%}
     </div>
   </form>
   

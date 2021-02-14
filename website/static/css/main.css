@@ -110,3 +110,11 @@ a.custom-card,
 a.custom-card:hover {
   color: inherit;
 }
+.card{
+    height: 500px;
+    width: 500px;
+    margin-top: 20px;
+}
+.card-img-top{
+    height: 320px;
+}

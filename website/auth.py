@@ -56,6 +56,6 @@ def sign_up():
             db.session.commit()
             flash('Konto zostało utworzone pomyślnie! Możesz się teraz zalogować i korzystać z wszystkich usług.', category='success')
             ##print(new_user.email)
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.notes'))
 
     return render_template("sign_up.html", user = current_user) 

@@ -117,6 +117,7 @@ margin: 18px 0 9px 0;
 .navbar {
     background-color: #050000;
     font-weight: bold;
+    z-index: 10000;
     }
 .navbar a{
     color: #00ff15;
@@ -133,3 +134,14 @@ a.custom-card:hover {
 .card-img-top{
     height: 320px;
 }
+#sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+.carousel-item {
+    width: 800px;
+    height: 700px;
+}
+.carousel{border:3px solid whitesmoke}
+

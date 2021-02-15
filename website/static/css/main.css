@@ -143,5 +143,6 @@ a.custom-card:hover {
     width: 800px;
     height: 700px;
 }
-.carousel{border:3px solid whitesmoke}
-
+.carousel{
+    border:3px solid whitesmoke
+}

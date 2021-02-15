@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Dietetyka{% endblock %}
+
+{% block content %}
+<h1>DIETETYKA</h1>
+<div class="card-deck">
+    <a href="/bmi-calc" class="custom-card">
+        <div class="card" >
+        <br><br>
+          <img class="card-img-top" src="static/img/body-mass-index.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Kalkulator BMI</h5>
+            <p class="card-text">Oblicz i zinterpretuj swoje bmi.</p>
+          </div>
+        </div>
+    </a>
+    <a href="/ppm-calc" class="custom-card">
+        <div class="card" >
+        <br><br>
+          <img class="card-img-top" src="static/img/ppm.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Kalkulator PPM</h5>
+            <p class="card-text">Podstawowa przemiana materii / spoczynkowy wydatek energetyczny kcal <br> Na podstawie wzorów Harrisa-Benedicta</p>
+          </div>
+        </div>
+    </a>
+  </div>
+
+
+{% endblock %}

@@ -38,6 +38,10 @@ def delete_note():
             
     return jsonify({})
 
+@views.route('/dietetic')
+def dietetic():
+    return render_template("dietetic.html", user=current_user)
+
 @views.route('/bmi-calc', methods=['GET','POST'])
 def bmi_calc():
     bmi = 0
@@ -56,8 +60,30 @@ def calc_bmi_men(weight,height):
     return round((weight/((height/100)**2)),2)
 def calc_bmi_women(weight,height):
     return round((weight/((height/100)**2)-1),2)
-    
 
+
+@views.route('/ppm-calc', methods=['GET', 'POST'])
+def ppm_calc():
+
+    ppm = 0
+    flag = ''
+
+    if request.method == 'POST':
+        weight = float(request.form.get('weight'))
+        height = float(request.form.get('height'))
+        age = float(request.form.get('age'))
+        option = request.form.get('options')
+        flag = 'x'
+        if option == 'men':
+            ppm = calc_ppm_men(weight,height, age)
+        else:
+            ppm = calc_ppm_women(weight,height, age)    
+    return render_template("ppm-calc.html", user=current_user, ppm = float(ppm), flag = flag)
+
+def calc_ppm_men(weight, height, age):
+    return round((66.5 + (13.75*weight) + (5.003 * height) - (6.775 * age)),2)
+def calc_ppm_women(weight, height, age):
+    return round((665.1 + (9.563*weight) + (1.85 * height) - (4.676 * age)),2)
 
 @views.route('/morse', methods=['GET', 'POST'])
 def morse():

@@ -156,6 +156,8 @@ def field_and_circuit():
     if request.method == 'POST':
         if request.form.get('r') == '':
             flash('Wartość pola nie może być pusta!', category='error')
+        elif int(request.form.get('r')) <= 0:
+            flash("Wartość promienia musi być dodatnia!", category='error')    
         else:
             r = float(request.form.get('r'))
             field = (math.pi * (r**2))

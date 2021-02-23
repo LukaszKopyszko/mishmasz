@@ -147,3 +147,21 @@ def geometry():
 @views.route('/generator', methods=['GET','POST'])
 def generator():
     return render_template('generator.html', user=current_user)    
+
+@views.route('/circle-field', methods=['GET','POST'])
+def field_and_circuit():
+    field = 0   
+    longiness = 0
+    flag = ''
+    if request.method == 'POST':
+        if request.form.get('r') == '':
+            flash('Wartość pola nie może być pusta!', category='error')
+        else:
+            r = float(request.form.get('r'))
+            field = (math.pi * (r**2))
+            field = round(field, 2)
+            longiness = (2 * math.pi * r)
+            longiness = round(longiness, 2)
+            flag = 'x'
+
+    return render_template('circle_field.html', user=current_user, field = field, longiness = longiness, flag = flag)

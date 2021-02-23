@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}KALKULATOR BMI{% endblock %}
+
+
+
+{% block content %}
+
+<form class="circle-form" method="POST" action="circle-field">
+    <h1 align="center" style="color: azure;">Oblicz pole i długość okręgu.</h1>
+    <div class="form-group">
+        <label for="r" class="col-form-label"> Podaj promień okręgu w centymetrach: </label>
+    </div>
+    <div class="form-group">
+    <div class="input-group">
+        <input type="number" step="0.01" class="form-control" id="r" name="r">
+      </div>
+      
+    </div>
+    <button class="btn btn-primary" type="submit" >Oblicz</button>
+    <div class="form-group">
+        {%if flag%}
+        {%if field%}
+        <div>
+            <p style="color: azure;">{% print("Pole okręgu wynosi:  {}cm, a długość okręgu wynosi: {}cm.".format(field, longiness)) %}</p>
+        </div>
+        {%endif%}
+        {%endif%}
+    </div>
+  </form>
+
+
+{% endblock %}

@@ -156,7 +156,7 @@ def field_and_circuit():
     if request.method == 'POST':
         if request.form.get('r') == '':
             flash('Wartość pola nie może być pusta!', category='error')
-        elif int(request.form.get('r')) <= 0:
+        elif float(request.form.get('r')) <= 0:
             flash("Wartość promienia musi być dodatnia!", category='error')    
         else:
             r = float(request.form.get('r'))
@@ -166,4 +166,4 @@ def field_and_circuit():
             longiness = round(longiness, 2)
             flag = 'x'
 
-    return render_template('circle_field.html', user=current_user, field = field, longiness = longiness, flag = flag)
+    return render_template('circle_field.html', user=current_user, field = float(field), longiness = float(longiness), flag = flag)

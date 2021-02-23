@@ -15,13 +15,13 @@ def login():
         user = User.query.filter_by(email = email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in succesfullt!', category='success')
+                flash('Zalogowano pomyślnie!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.notes'))
             else:
-                flash('Incorrect password, try again.', category='error')
+                flash('Złe hasło, podaj inne.', category='error')
         else:
-            flash('User does not exists.', category='error')
+            flash('Użytkownik nie istnieje.', category='error')
 
     return render_template("login.html", user=current_user)
 
